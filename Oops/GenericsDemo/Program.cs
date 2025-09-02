@@ -1,4 +1,6 @@
-﻿namespace GenericsDemo
+﻿using System.Collections;
+
+namespace GenericsDemo
 {
     //2.Generic collections
     //what is Generics?
@@ -130,8 +132,33 @@
             //else
             //    Console.WriteLine("Invalid Input");
 
+            HashSet<string> set = new HashSet<string>();
+            set.Add("C#");
+            set.Add("C#");
+            set.Add("C++");
+            set.Add("Java");
 
+            //foreach (var item in set)
+            //{
+            //    Console.WriteLine("Set Item: {0}", item);
+            //}
 
+            //itterate using Enumerator
+            IEnumerator<string> enumerator = set.GetEnumerator();
+      
+            while (enumerator.MoveNext())
+            {
+                Console.WriteLine("Set Item: {0}", enumerator.Current);
+            }
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add(1, "C#");
+            hashtable.Add(1, "C#");//this throw exception because key must be unique
+
+            Console.WriteLine("--------------------");
+            foreach (DictionaryEntry item in hashtable)
+            {
+                Console.WriteLine("HashTable Item: {0} {1}", item.Key,item.Value);
+            }
 
 
 

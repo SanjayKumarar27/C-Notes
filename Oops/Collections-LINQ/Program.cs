@@ -189,7 +189,7 @@ namespace Collections
             //Yes we can pass parameter to class using generics using <>
             //data type ,
             //what are we 
-            String is class
+            // String is class
 
             
 

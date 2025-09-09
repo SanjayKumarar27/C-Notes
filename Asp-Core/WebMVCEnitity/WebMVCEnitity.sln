@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36414.22 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebMVCEnitity", "WebMVCEnitity.csproj", "{9D214855-7AE1-4665-9432-DD6B65837C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D214855-7AE1-4665-9432-DD6B65837C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D214855-7AE1-4665-9432-DD6B65837C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D214855-7AE1-4665-9432-DD6B65837C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D214855-7AE1-4665-9432-DD6B65837C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F6AE342-6150-4296-9818-1CA98B3E937A}
+	EndGlobalSection
+EndGlobal

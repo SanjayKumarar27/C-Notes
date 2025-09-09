@@ -1,0 +1,6 @@
+@AspWebCoreapi_HostAddress = http://localhost:5155
+
+GET {{AspWebCoreapi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -110,7 +110,7 @@ namespace DBConnect
             //    Console.WriteLine(reader["Sname"]);
             //}
 
-            SqlConnection con = new SqlConnection("server=.;databas=Sanjay;uid=sa;pwd=rps@12345;encrypt=false;TrustServerCertificate=false");
+            SqlConnection con = new SqlConnection("server=.;database=Sanjay;uid=sa;pwd=rps@12345;encrypt=false;TrustServerCertificate=false");
             try
             {
                 con.Open();

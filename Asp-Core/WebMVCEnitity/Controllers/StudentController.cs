@@ -54,7 +54,7 @@ namespace WebMVCEnitity.Controllers
         //Async
         public async Task<IActionResult> Create(Student s)
         {
-            if (s != null && ModelState.IsValid)
+            if ( ModelState.IsValid)
             { 
                 await entity.AddAsync(s);
                 await entity.SaveChangesAsync();
@@ -162,23 +162,26 @@ namespace WebMVCEnitity.Controllers
             }
             return View(student);
         }
+        ////dotnet tool install --global dotnet-ef
+        //dotnet ef dbcontext scaffold "Name=ConnectionStrings:mycon" Microsoft.EntityFrameworkCore.SqlServer -o Models --force
+        //dotnet ef dbcontext scaffold "Name=ConnectionStrings:myconn" Microsoft.EntityFrameworkCore.SqlServer
+        //-o Models --force
 
+                //Sync
+                //[HttpPost, ActionName("Delete")]
+                //public IActionResult DeleteConfirmed(int id)
+                //{
+                //    var student = entity.Students.Find(id);
+                //    if (student != null)
+                //    {
+                //        entity.Students.Remove(student);
+                //        entity.SaveChanges();
+                //    }
+                //    return RedirectToAction(nameof(Index));
+                //}
 
-        //Sync
-        //[HttpPost, ActionName("Delete")]
-        //public IActionResult DeleteConfirmed(int id)
-        //{
-        //    var student = entity.Students.Find(id);
-        //    if (student != null)
-        //    {
-        //        entity.Students.Remove(student);
-        //        entity.SaveChanges();
-        //    }
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //async
-        [HttpPost,ActionName("Delete")]
+                //async
+                [HttpPost,ActionName("Delete")]
 
         public async Task<IActionResult> DeleteConfirmed(int ?id)
         {

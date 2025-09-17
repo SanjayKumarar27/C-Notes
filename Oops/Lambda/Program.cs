@@ -16,9 +16,19 @@ namespace Lambda
         {
             return Regex.IsMatch(str, @"\d");
         }
+
+        public static void Wr()
+        {
+            Console.WriteLine("Hai from static class");
+        }
     }
+   
     internal class Program
     {
+        static Program()
+        {
+            Console.Write("hello");
+        }
         delegate void MyDelegate(string name);
 
         delegate int calculate(int x, int y);
@@ -51,30 +61,30 @@ namespace Lambda
             //action to return type is void
             //func to return type is other than void these are inbuilt delegates in .Net
 
-            Action<int,int> add = (a,b) => { Console.WriteLine("The sum of 10 and 20 is " + (a + b)); };
+            // Action<int,int> add = (a,b) => { Console.WriteLine("The sum of 10 and 20 is " + (a + b)); };
 
 
 
-            Func<int, int, int> sub = (a, b) => a - b;
+            // Func<int, int, int> sub = (a, b) => a - b;
 
-           Console.WriteLine( sub(100, sub(30, 60)));
+            //Console.WriteLine( sub(100, sub(30, 60)));
 
 
             //square of a number
-            Func<int, int> square = a => a * a;
-            Console.WriteLine("The square of 5 is " + square(5));
+            //Func<int, int> square = a => a * a;
+            //Console.WriteLine("The square of 5 is " + square(5));
 
-            string abc= "Sanjay123";
-            Console.WriteLine("this  contain number "+abc.IsNumber());// we can use our extention method here
-         ;
+            //string abc= "Sanjay123";
+            //Console.WriteLine("this  contain number "+abc.IsNumber());// we can use our extention method here
 
-            int[] a1 = new int[5] { 1, 2, 3, 4, 5 };
+
+            //int[] a1 = new int[5] { 1, 2, 3, 4, 5 };
             //lamda and lINQ can be used interchangeably
-            var res = from a in a1
-                      where a.IsEven()// we can use our extention method here
-                      select a;
+            //var res = from a in a1
+            //          where a.IsEven()// we can use our extention method here
+            //          select a;
             //this same as
-           IEnumerable<int> list= a1.Where(a => a % 2 == 0).OrderBy(a => a);
+            //IEnumerable<int> list= a1.Where(a => a % 2 == 0).OrderBy(a => a);
             //foreach(var item in list)
             //{
             //    Console.WriteLine(item);
@@ -82,20 +92,20 @@ namespace Lambda
 
             //array of strings we group by character first character  using lamda storeit in Ienumerable
 
-            string[] names = new string[10] { "Sanjay", "Ajay", "Vijay", "Amar", "Akbar", "Anthony", "Sunil", "Salman", "Yash", "Deepak" };
+            //string[] names = new string[10] { "Sanjay", "Ajay", "Vijay", "Amar", "Akbar", "Anthony", "Sunil", "Salman", "Yash", "Deepak" };
 
-            var charNames = names.GroupBy(n => n[0]);
-        
-            foreach (var group in charNames)
-            {
-                Console.WriteLine("Names starting with " + group.Key);
-                foreach (var name in group)
-                {
-                    Console.WriteLine(name);
-                }
-            }
-            
+            //var charNames = names.GroupBy(n => n[0]);
 
+            //foreach (var group in charNames)
+            //{
+            //    Console.WriteLine("Names starting with " + group.Key);
+            //    foreach (var name in group)
+            //    {
+            //        Console.WriteLine(name);
+            //    }
+            //}
+            Console.WriteLine(*((();
+            Console.WriteLine("hello from main");
 
 
 

@@ -17,6 +17,9 @@ function abc(){
     //     //global scope
     //     //funtion scope
     // }
+    //if we declare var in funtion without var keyword it becomes global scope
+    //so var is optional but recommended
+    
     if(false){
         var a=30;//declaration done but not the defination
     }

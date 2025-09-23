@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- the default button type is submit make the site submit the form h1 will not be stabel in the page
+     -->
+    <form action="">
+    <input type="number" name="a" id="1">
+    <input type="number" name="b" id="2">
+    <button type="button" onclick="sum()"> Add</button>
+    <button   type="button"  onclick="Substract()"> Subtract</button>
+    </form>
+    <h1 id="res"></h1>
+
+    <script>
+        let a,b,a1,b1;
+        function input(){
+
+            a=document.getElementById("1").value;
+            
+    
+            b=document.getElementById("2").value;
+            a1=parseFloat(a)||0;
+            b1=parseFloat(b)||0;
+        }
+        function sum(){
+            input();
+            let res=a1+b1
+
+            document.getElementById("res").innerHTML=`The Result is ${res}`;
+
+            // alert(`The sum is ${res}`);
+        }
+        function Substract(){
+            input();
+            let res=a1-b1
+
+            document.getElementById("res").innerHTML=`The Result is ${res}`;
+
+            // alert(`The sum is ${res}`);
+        }
+    </script>
+</body>
+</html>

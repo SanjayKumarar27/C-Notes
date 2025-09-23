@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Nature Scene</title>
+    <style>
+        body { margin: 0; overflow: hidden; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="natureCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById('natureCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Set canvas size
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Clouds array
+        const clouds = [];
+        for (let i = 0; i < 5; i++) {
+            clouds.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * 200 + 50,
+                radius: 30 + Math.random() * 20,
+                speed: 0.5 + Math.random() * 0.5
+            });
+        }
+
+        // Birds array
+        const birds = [];
+        for (let i = 0; i < 5; i++) {
+            birds.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * 200 + 100,
+                speedX: Math.random() * 2 - 1,
+                flap: 0
+            });
+        }
+
+        function drawScene() {
+            // Clear canvas
+            ctx.fillStyle = '#87CEEB'; // Sky blue
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw ground
+            ctx.fillStyle = '#228B22'; // Green
+            ctx.fillRect(0, canvas.height * 0.5, canvas.width, canvas.height * 0.5);
+
+            // Draw sun
+            ctx.fillStyle = '#FFFF00';
+            ctx.beginPath();
+            ctx.arc(100, 100, 50, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Draw clouds
+            clouds.forEach(cloud => {
+                ctx.fillStyle = '#FFFFFF';
+                ctx.beginPath();
+                ctx.arc(cloud.x, cloud.y, cloud.radius, 0, Math.PI * 2);
+                ctx.arc(cloud.x + cloud.radius * 0.7, cloud.y - cloud.radius * 0.3, cloud.radius * 0.8, 0, Math.PI * 2);
+                ctx.arc(cloud.x + cloud.radius * 1.4, cloud.y, cloud.radius * 0.9, 0, Math.PI * 2);
+                ctx.fill();
+            });
+
+            // Draw birds (V-shaped)
+            birds.forEach(bird => {
+                ctx.strokeStyle = '#000000';
+                ctx.lineWidth = 2;
+                ctx.beginPath();
+                ctx.moveTo(bird.x, bird.y);
+                ctx.lineTo(bird.x - 10, bird.y + 5 + bird.flap);
+                ctx.moveTo(bird.x, bird.y);
+                ctx.lineTo(bird.x + 10, bird.y + 5 + bird.flap);
+                ctx.stroke();
+            });
+        }
+
+        function updateScene() {
+            // Update clouds
+            clouds.forEach(cloud => {
+                cloud.x += cloud.speed;
+                if (cloud.x > canvas.width + cloud.radius * 2) {
+                    cloud.x = -cloud.radius * 2;
+                }
+            });
+
+            // Update birds
+            birds.forEach(bird => {
+                bird.x += bird.speedX;
+                bird.flap = Math.sin(Date.now() * 0.01) * 3; // Flapping effect
+                if (bird.x > canvas.width) bird.x = 0;
+                if (bird.x < 0) bird.x = canvas.width;
+            });
+        }
+
+        function animate() {
+            updateScene();
+            drawScene();
+            requestAnimationFrame(animate);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            drawScene();
+        });
+
+        // Start animation
+        animate();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geo Loaction</title>
+    <script>
+        
+        function getloction(){
+            if(navigator.geolocation){
+              navigator.geolocation.getCurrentPosition(success,error);
+              
+            }else{
+               document.getElementById("Disp").innerHTML="Geo Location Not Supported"
+            }
+
+        }
+
+        function success(position){
+          document.getElementById("Disp").innerHTML="Latitude "+position.coords.latitude +" Logitude " +position.coords.longitude;
+        }
+        function error(error){
+            console.log(error.code)
+            switch(error.code){
+                case error.PERMISSION_DENIE:
+                    document.getElementById("Disp").innerHTML="User Denied for Geo locaiton"
+                case error.UNKOWN_ERROR:
+                    document.getElementById("Disp").innerHTML="diffrent Error"
+
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <h1 id="Disp"> Geo Location</h1>
+    <button onclick="getloction()" >Get Location</button>
+</body>
+</html>

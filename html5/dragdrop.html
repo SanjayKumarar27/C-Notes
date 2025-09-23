@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Drag Drop</title>
+    <style>
+        figure{
+            float: left;
+            height: 350px;
+            width: 350px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <figure id="f1" ondrop="drop(event)" ondragover="dropover(event)">
+        <figcaption>Living Room</figcaption>
+        <img id="img1" src="emoji" alt="" height="300" width="250" draggable="true" ondragstart="dragstart(event)">
+        
+    </figure>
+    <figure id="f2" ondrop="drop(event)" ondragover="dropover(event)">
+        <figcaption>Punishment Room</figcaption>
+       
+    </figure>
+ 
+    <script>
+        function dragstart(ev){
+            ev.dataTransfer.setData("id",ev.target.id);
+        }
+        function dropover(ev){
+            ev.preventDefault();
+        }
+        function drop(ev){
+            // ev.preventDefault();
+            const id=ev.dataTransfer.getData("id");
+            ev.target.appendChild(document.getElementById(id))
+        }
+    </script>
+</body>
+</html>

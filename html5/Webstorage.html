@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebStorage</title>
+</head>
+<body>
+    
+    <!-- State Management -->
+     <!-- Server and Client -->
+      <!-- Storage has 2 option
+       1.Session storage :Temparory
+       2.Local Storage: Permanent-->
+
+       <!-- Browser has its own database in the indexDB you can see it in the inspect->Applicatoin -->
+
+       <h1>Session Storage</h1>
+        <h2 id="fn">FirstName</h2>
+        <button onclick="sessionStorage.setItem('fn','Sanjay')">SetItem</button>
+        <button onclick="document.getElementById('fn').innerText=sessionStorage.getItem('fn')">GetItems</button>
+
+        <button onclick="sessionStorage.removeItem('fn')">RemoveItem</button>
+
+
+         <h1>Local Storage</h1>
+        <h2 id="ln">LastName</h2>
+        <button onclick="localStorage.setItem('ln','Kumar')">SetItem</button>
+        <button onclick="document.getElementById('ln').innerText=localStorage.getItem('ln')">GetItems</button>
+
+        <button onclick="localStorage.removeItem('ln')">RemoveItem</button>
+
+
+</body>
+</html>

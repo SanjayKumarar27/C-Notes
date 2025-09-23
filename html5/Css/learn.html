@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ball Bounce</title>
+  <style>
+    body {
+      margin: 0;
+      height: 600px;
+      position: absolute;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+
+    div {
+      position: absolute;
+      bottom: 0;
+      animation: bounce 5s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%   { bottom: 0; }
+      10%  { bottom: 400px; }
+      20%  { bottom: 0; }
+      30%  { bottom: 300px; }
+      40%  { bottom: 0; }
+      50%  { bottom: 200px; }
+      60%  { bottom: 0; }
+      70%  { bottom: 100px; }
+      80%  { bottom: 0; }
+      90%  { bottom: 50px; }
+      100% { bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="ball.jpg" alt="Ball" height="100px" width="100px" />
+  </div>
+</body>
+</html>
